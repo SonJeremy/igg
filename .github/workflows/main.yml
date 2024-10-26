@@ -1,4 +1,4 @@
-name: master
+name: Build Index & Action Pages
 on: [push]
 
 jobs:
@@ -11,17 +11,14 @@ jobs:
 
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v4.0.0
-        with:
-          FOLDER: CertIOS6
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-        with:
-          path: CertIOS6
 
   deploy:
     needs: pages-directory-listing
     permissions:
+      contents: write
       pages: write
       id-token: write
 
